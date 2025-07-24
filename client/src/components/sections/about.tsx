@@ -58,25 +58,35 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Team illustration */}
+            {/* Team and capabilities illustration */}
             <div className="bg-gradient-to-br from-gray-100 to-indigo-100 rounded-3xl p-8 relative overflow-hidden">
               <div className="grid grid-cols-3 gap-4 relative z-10">
                 {[
-                  { height: "h-20", gradient: "from-indigo-400 to-purple-500", delay: 0 },
-                  { height: "h-16", gradient: "from-cyan-400 to-emerald-500", delay: 0.1 },
-                  { height: "h-18", gradient: "from-emerald-400 to-teal-500", delay: 0.2 },
-                  { height: "h-16", gradient: "from-amber-400 to-orange-500", delay: 0.3 },
-                  { height: "h-20", gradient: "from-red-400 to-pink-500", delay: 0.4 },
-                  { height: "h-14", gradient: "from-purple-400 to-indigo-500", delay: 0.5 },
+                  { height: "h-20", gradient: "from-indigo-400 to-purple-500", title: "Development", icon: "💻", delay: 0 },
+                  { height: "h-16", gradient: "from-cyan-400 to-emerald-500", title: "Design", icon: "🎨", delay: 0.1 },
+                  { height: "h-18", gradient: "from-emerald-400 to-teal-500", title: "AI/ML", icon: "🧠", delay: 0.2 },
+                  { height: "h-16", gradient: "from-amber-400 to-orange-500", title: "Support", icon: "🛠️", delay: 0.3 },
+                  { height: "h-20", gradient: "from-red-400 to-pink-500", title: "Strategy", icon: "📋", delay: 0.4 },
+                  { height: "h-14", gradient: "from-purple-400 to-indigo-500", title: "Innovation", icon: "🚀", delay: 0.5 },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className={`w-full ${item.height} bg-gradient-to-br ${item.gradient} rounded-xl ${index < 2 ? '' : index < 4 ? 'mt-8' : ''}`}
+                    className={`w-full ${item.height} bg-gradient-to-br ${item.gradient} rounded-xl flex flex-col items-center justify-center text-white relative overflow-hidden group cursor-pointer ${index < 2 ? '' : index < 4 ? 'mt-8' : ''}`}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: item.delay }}
                     viewport={{ once: true }}
-                  />
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-lg mb-1">{item.icon}</div>
+                    <div className="text-xs font-semibold text-center opacity-90">{item.title}</div>
+                    
+                    {/* Subtle background pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full"></div>
+                      <div className="absolute bottom-1 left-1 w-1 h-1 bg-white rounded-full"></div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
               

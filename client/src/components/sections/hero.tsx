@@ -105,7 +105,7 @@ export default function Hero() {
               
               {/* Central illustration */}
               <div className="w-full h-96 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl flex items-center justify-center relative overflow-hidden">
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-4 relative z-10">
                   <motion.div 
                     className="w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl mx-auto flex items-center justify-center"
                     animate={{ scale: [1, 1.1, 1] }}
@@ -116,24 +116,33 @@ export default function Hero() {
                   <div className="text-2xl font-bold text-gray-700">Building the Future</div>
                 </div>
                 
-                {/* Background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="grid grid-cols-8 grid-rows-8 gap-2 h-full p-4">
-                    {Array.from({ length: 16 }).map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className={`rounded ${
-                          i % 5 === 0 ? 'bg-indigo-600' :
-                          i % 5 === 1 ? 'bg-purple-600' :
-                          i % 5 === 2 ? 'bg-cyan-600' :
-                          i % 5 === 3 ? 'bg-emerald-600' : 'bg-amber-600'
-                        }`}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: i * 0.1 }}
-                      />
-                    ))}
+                {/* Tech-themed background elements */}
+                <div className="absolute inset-0 opacity-20">
+                  {/* Code brackets */}
+                  <div className="absolute top-8 left-8 text-4xl font-bold text-indigo-600">{"{"}</div>
+                  <div className="absolute bottom-8 right-8 text-4xl font-bold text-purple-600">{"}"}</div>
+                  
+                  {/* Tech icons representation */}
+                  <div className="absolute top-16 right-16 w-8 h-8 border-2 border-cyan-400 rounded-full"></div>
+                  <div className="absolute bottom-16 left-16 w-6 h-6 bg-emerald-400 rotate-45"></div>
+                  <div className="absolute top-1/3 left-12 w-4 h-12 bg-amber-400 rounded-full"></div>
+                  <div className="absolute bottom-1/3 right-12 w-12 h-4 bg-rose-400 rounded-full"></div>
+                  
+                  {/* Binary pattern */}
+                  <div className="absolute top-24 left-1/2 transform -translate-x-1/2 text-xs text-indigo-400 font-mono">
+                    01010101
                   </div>
+                  <div className="absolute bottom-24 left-1/3 text-xs text-purple-400 font-mono">
+                    11010110
+                  </div>
+                  
+                  {/* Circuit lines */}
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
+                    <path d="M50 50 L100 50 L100 100" stroke="#6366f1" strokeWidth="2" fill="none" opacity="0.3"/>
+                    <path d="M350 350 L300 350 L300 300" stroke="#8b5cf6" strokeWidth="2" fill="none" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="3" fill="#06b6d4"/>
+                    <circle cx="300" cy="300" r="3" fill="#10b981"/>
+                  </svg>
                 </div>
               </div>
             </div>

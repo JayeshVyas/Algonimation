@@ -88,23 +88,26 @@ export default function Products() {
               <div className="relative z-10">
                 <div className="grid grid-cols-2 gap-6">
                   {[
-                    { color: "bg-purple-500", delay: 0 },
-                    { color: "bg-cyan-500", delay: 0.1 },
-                    { color: "bg-emerald-500", delay: 0.2 },
-                    { color: "bg-amber-500", delay: 0.3 },
+                    { color: "bg-purple-500", title: "Analytics", subtitle: "Real-time insights", icon: "📊", delay: 0 },
+                    { color: "bg-cyan-500", title: "ChatBot", subtitle: "AI Assistant", icon: "🤖", delay: 0.1 },
+                    { color: "bg-emerald-500", title: "Dashboard", subtitle: "Data visualization", icon: "📈", delay: 0.2 },
+                    { color: "bg-amber-500", title: "Reports", subtitle: "Smart reporting", icon: "📋", delay: 0.3 },
                   ].map((item, index) => (
                     <motion.div
                       key={index}
-                      className="bg-white/80 backdrop-blur-sm p-6 rounded-xl"
+                      className="bg-white/80 backdrop-blur-sm p-6 rounded-xl hover:bg-white/90 transition-all duration-300"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: item.delay }}
                       viewport={{ once: true }}
+                      whileHover={{ scale: 1.05 }}
                     >
-                      <div className={`w-8 h-8 ${item.color} rounded-lg mb-4`}></div>
-                      <div className="space-y-2">
-                        <div className="h-4 bg-gray-300 rounded"></div>
-                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                      <div className={`w-10 h-10 ${item.color} rounded-lg mb-4 flex items-center justify-center text-white text-lg`}>
+                        {item.icon}
+                      </div>
+                      <div className="space-y-1">
+                        <div className="font-semibold text-gray-800">{item.title}</div>
+                        <div className="text-sm text-gray-600">{item.subtitle}</div>
                       </div>
                     </motion.div>
                   ))}
