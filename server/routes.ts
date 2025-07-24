@@ -34,13 +34,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin route to view contact submissions (for development/testing)
+  app.get("/api/admin/contacts", async (req, res) => {
+    try {
+      const submissions = await storage.getAllContactSubmissions();
+      res.json(submissions);
+    } catch (error) {
+      console.error("Error fetching contacts:", error);
+      res.status(500).json({ error: "Failed to fetch contacts" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
 
 async function sendContactEmail(data: any) {
-  // In a real implementation, you would use a service like Nodemailer
-  // For now, we'll simulate the email sending
+  // For now, we'll log the contact submission and store it
+  // This can be easily upgraded to use email services later
   const emailContent = `
     New Contact Form Submission from Algonimation Website
     
@@ -56,14 +67,17 @@ async function sendContactEmail(data: any) {
     Submitted at: ${new Date().toISOString()}
   `;
   
-  console.log("Email would be sent to jayeshvyas321@gmail.com:");
+  console.log("📧 NEW CONTACT SUBMISSION:");
+  console.log("=" .repeat(50));
   console.log(emailContent);
+  console.log("=" .repeat(50));
   
-  // TODO: Implement actual email sending with Nodemailer
-  // const transporter = nodemailer.createTransporter({...});
-  // await transporter.sendMail({
-  //   to: 'jayeshvyas321@gmail.com',
-  //   subject: 'New Contact Form Submission - Algonimation',
-  //   text: emailContent
-  // });
+  // Store this in a simple way that can be retrieved later
+  // In the future, you can:
+  // 1. Use Nodemailer with Gmail SMTP (free)
+  // 2. Use EmailJS (free tier available)
+  // 3. Use Resend.com (free tier)
+  // 4. Or upgrade to SendGrid later when you have a domain
+  
+  return true; // Simulate successful email sending
 }

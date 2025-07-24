@@ -169,7 +169,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Phone Number</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="+1 (555) 123-4567" {...field} />
+                        <Input type="tel" placeholder="+1 (555) 123-4567" {...field} value={field.value || ""} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -183,7 +183,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Company</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Company" {...field} />
+                        <Input placeholder="Your Company" {...field} value={field.value || ""} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
