@@ -41,9 +41,9 @@ const chatbotResponses = {
     bpo: "We provide BPO (Business Process Outsourcing) services including customer support, data entry, virtual assistance, accounting support, and administrative tasks."
   },
   
-  pricing: "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and can provide a detailed quote after understanding your needs. Would you like to contact us for a free consultation?",
+  pricing: "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and can provide a detailed quote after understanding your needs. For pricing inquiries, you can reach out to us at jayeshvyascs@gmail.com or use our contact form for a free consultation.",
   
-  contact: "You can reach us through our contact form on this website, or feel free to call us directly. We typically respond to inquiries within 24 hours and offer free initial consultations.",
+  contact: "You can reach us through our contact form on this website, email us at jayeshvyascs@gmail.com, or feel free to call us directly. We typically respond to inquiries within 24 hours and offer free initial consultations.",
   
   company: "Algonimation is a technology company specializing in innovative solutions for businesses. We combine expertise in web development, mobile apps, AI, and business process optimization to help companies grow and succeed in the digital age.",
   
