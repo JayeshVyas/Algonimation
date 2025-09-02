@@ -40,9 +40,14 @@ const services = [
   },
   {
     icon: Headphones,
-    title: "BPO Services",
-    description: "Business Process Outsourcing solutions to streamline your operations and reduce costs effectively.",
-    features: ["Customer Support", "Data Entry", "Process Automation"],
+    title: "Quality & AI Engineering",
+    description:
+      "We ensure your software and systems are built to the highest standards of quality and innovation. Our engineering team delivers robust, reliable, and future-ready solutions, leveraging advanced AI methodologies and rigorous testing practices.",
+    features: [
+      "Quality Assurance & Testing",
+      "AI-driven Automation",
+      "System Reliability & Scalability"
+    ],
     gradient: "from-red-50 to-rose-50",
     iconGradient: "from-red-500 to-rose-600",
     border: "border-red-100",
