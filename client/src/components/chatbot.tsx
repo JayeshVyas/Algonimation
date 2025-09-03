@@ -209,7 +209,12 @@ export default function Chatbot() {
             {/* Header */}
             <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-4 rounded-t-lg flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Bot size={20} />
+                <img
+                  src="/algonimation-logo.png"
+                  alt="Algonimation Logo"
+                  className="w-8 h-8 rounded shadow object-contain bg-white"
+                  style={{ minWidth: 32, minHeight: 32 }}
+                />
                 <h3 className="font-semibold">Algonimation Assistant</h3>
               </div>
               <Button
