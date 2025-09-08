@@ -8,9 +8,13 @@ export default function Logo({ className = "", showText = true }: LogoProps) {
     <div className={`flex items-center space-x-3 max-w-xs ${className}`}>
       <img
         src="/algonimation-logo.png"
-        alt="Algonimation Logo"
+        alt="Algonimation Logo - Web Development, Mobile Apps & AI Solutions"
         className="w-12 h-12 rounded-lg shadow-lg object-contain"
         style={{ minWidth: 48, minHeight: 48 }}
+        width="48"
+        height="48"
+        loading="eager"
+        fetchPriority="high"
       />
       {showText && (
         <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">

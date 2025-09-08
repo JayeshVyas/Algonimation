@@ -273,9 +273,12 @@ export default function Chatbot() {
               <div className="flex items-center gap-2">
                 <img
                   src="/algonimation-logo.png"
-                  alt="Algonimation Logo"
+                  alt="Algonimation AI Assistant Logo"
                   className="w-8 h-8 rounded shadow object-contain bg-white"
                   style={{ minWidth: 32, minHeight: 32 }}
+                  width="32"
+                  height="32"
+                  loading="lazy"
                 />
                 <h3 className="font-semibold">Algonimation Assistant</h3>
               </div>

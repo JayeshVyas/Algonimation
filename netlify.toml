@@ -1,6 +1,6 @@
 [build]
   base = ""
-  publish = "dist/public"
+  publish = "dist/client"
   command = "npm run build"
 
 [[redirects]]
@@ -8,17 +8,75 @@
   to = "/index.html"
   status = 200
 
+# Compress all assets to improve performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://replit.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' https:;"
+    
+# Set correct MIME types
 [[headers]]
   for = "/*.js"
   [headers.values]
     Content-Type = "text/javascript"
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
     Content-Type = "text/css"
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/*.js.map"
   [headers.values]
     Content-Type = "application/json"
+
+# Cache images for better performance
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Serve proper MIME types for fonts
+[[headers]]
+  for = "/*.woff"
+  [headers.values]
+    Content-Type = "font/woff"
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Content-Type = "font/woff2"
+    Cache-Control = "public, max-age=31536000"
+
+# Set short cache for HTML files
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

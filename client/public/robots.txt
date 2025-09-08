@@ -1,0 +1,9 @@
+# robots.txt for Algonimation.in
+User-agent: *
+Allow: /
+
+# Allow all bots to access all content
+Disallow:
+
+# Sitemaps
+Sitemap: https://algonimation.in/sitemap.xml

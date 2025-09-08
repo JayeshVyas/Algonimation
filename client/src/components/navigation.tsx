@@ -1,20 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/ui/logo";
 import { scrollToSection } from "@/lib/smooth-scroll";
+import { useLocation, useRoute } from "wouter";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [location, setLocation] = useLocation();
+  const [isHome] = useRoute("/");
 
   const navItems = [
-    { name: "Home", href: "home" },
-    { name: "Services", href: "services" },
-    { name: "Products", href: "products" },
-    { name: "About", href: "about" },
+    { name: "Home", href: "/", section: "home" },
+    { name: "Services", href: "/services", section: "services" },
+    { name: "Products", href: "/products", section: "products" },
+    { name: "About", href: "/about", section: "about" },
   ];
 
-  const handleNavClick = (sectionId: string) => {
-    scrollToSection(sectionId);
+  const handleNavClick = (href: string, section: string) => {
+    if (isHome) {
+      // If on homepage, use smooth scroll
+      scrollToSection(section);
+    } else {
+      // On other pages, navigate to the appropriate page
+      if (href === "/") {
+        setLocation("/");
+        // Add a small delay to ensure the page loads before scrolling
+        setTimeout(() => {
+          scrollToSection(section);
+        }, 100);
+      } else {
+        setLocation(href);
+      }
+    }
     setIsMenuOpen(false);
   };
 
@@ -29,14 +46,14 @@ export default function Navigation() {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleNavClick(item.href, item.section)}
                 className="text-gray-700 hover:text-indigo-600 transition-colors font-medium"
               >
                 {item.name}
               </button>
             ))}
             <button
-              onClick={() => handleNavClick("contact")}
+              onClick={() => handleNavClick("/contact", "contact")}
               className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium"
             >
               Contact
@@ -62,14 +79,14 @@ export default function Navigation() {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleNavClick(item.href, item.section)}
                 className="block w-full text-left text-gray-700 hover:text-indigo-600 transition-colors font-medium"
               >
                 {item.name}
               </button>
             ))}
             <button
-              onClick={() => handleNavClick("contact")}
+              onClick={() => handleNavClick("/contact", "contact")}
               className="block w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full text-center font-medium"
             >
               Contact
