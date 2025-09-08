@@ -30,7 +30,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "jayeshvyas321@gmail.com",
+    content: "algonimation@gmail.com",
     gradient: "from-emerald-500 to-teal-600",
   },
   {
