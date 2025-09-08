@@ -16,13 +16,6 @@ export default defineConfig({
         ]
       : []),
   ],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      },
-    },
-  },
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -41,6 +34,7 @@ export default defineConfig({
     },
   },
   server: {
+
     fs: {
       strict: true,
       deny: ["**/.*"],
