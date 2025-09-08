@@ -115,7 +115,7 @@ export default function Footer() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <p>&copy; 2024 Algonimation. All rights reserved. | Domain: algonimation.in</p>
+          <p>&copy; 2025 Algonimation. All rights reserved. | Domain: algonimation.in</p>
         </motion.div>
       </div>
     </footer>
