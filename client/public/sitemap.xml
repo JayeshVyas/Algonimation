@@ -1,16 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://algonimation.in/</loc>
-    <lastmod>2023-06-20</lastmod>
+    <lastmod>2023-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://algonimation.in/algonimation-logo.png</image:loc>
+      <image:title>Algonimation Logo</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://algonimation.in/about</loc>
-    <lastmod>2023-06-20</lastmod>
+    <lastmod>2023-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/services</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/products</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/contact</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/services/web-development</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/services/mobile-app-development</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/services/ai-solutions</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/services/plm-customization</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://algonimation.in/services/kpo-bpo-services</loc>
+    <lastmod>2023-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://algonimation.in/services</loc>
