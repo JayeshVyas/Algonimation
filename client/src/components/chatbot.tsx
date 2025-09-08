@@ -15,12 +15,12 @@ interface Message {
 const suggestedQuestions = [
   "What services do you offer?",
   "Tell me about web development",
+  "Tell me about app development",
   "What is PLM customization?", 
-  "How much do your services cost?",
   "Tell me about AI solutions",
   "What is the difference between KPO and BPO?",
+  "How much do your services cost?",
   "How can I contact you?",
-  "Tell me about mobile app development",
   "What technologies do you use?",
   "How long does a project take?"
 ];
@@ -41,9 +41,9 @@ const chatbotResponses = {
     bpo: "We provide BPO (Business Process Outsourcing) services including customer support, data entry, virtual assistance, accounting support, and administrative tasks."
   },
   
-  pricing: "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and can provide a detailed quote after understanding your needs. For pricing inquiries, you can reach out to us at jayeshvyascs@gmail.com or use our contact form for a free consultation.",
+  pricing: "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and can provide a detailed quote after understanding your needs. For pricing inquiries, you can reach out to us at algonimation@gmail.com or use our contact form for a free consultation.",
   
-  contact: "You can reach us through our contact form on this website, email us at jayeshvyascs@gmail.com, or feel free to call us directly. We typically respond to inquiries within 24 hours and offer free initial consultations.",
+  contact: "You can reach us through our contact form on this website, email us at algonimation@gmail.com, or feel free to call us directly. We typically respond to inquiries within 24 hours and offer free initial consultations.",
   
   company: "Algonimation is a technology company specializing in innovative solutions for businesses. We combine expertise in web development, mobile apps, AI, and business process optimization to help companies grow and succeed in the digital age.",
   
@@ -98,7 +98,7 @@ function getResponse(message: string): string {
   }
   
   // Services list
-  if (lowerMessage.includes('service') || lowerMessage.includes('what do you do') || lowerMessage.includes('help')) {
+  if (lowerMessage.includes('service') || lowerMessage.includes('what do you do') || lowerMessage.includes('help') || lowerMessage.includes('offer')) {
     return "We offer six main services: Web Development, App Development, PLM Customizations, AI Solutions, KPO Services, and BPO Services. Which one would you like to know more about?";
   }
 
@@ -117,12 +117,13 @@ function getResponse(message: string): string {
     return "Project timelines vary based on complexity and requirements. Simple websites typically take 2-4 weeks, while complex applications can take 2-6 months. We'll provide a detailed timeline after understanding your specific needs.";
   }
   
-  // Fallback
-  return chatbotResponses.fallback[Math.floor(Math.random() * chatbotResponses.fallback.length)];
+  // Fallback with email contact
+  return "I don't have information about that specific query. For more detailed assistance, please contact us directly at algonimation@gmail.com or use the contact form on our website.";
 }
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -135,6 +136,58 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // Handle chatbot opening states
+  const openChat = () => {
+    // If we're opening from minimized state, we want to preserve the chat
+    if (isMinimized) {
+      wasMinimized.current = true;
+    }
+    setIsOpen(true);
+    setIsMinimized(false);
+  };
+  
+  // Handle chatbot closing (complete reset)
+  const closeChat = () => {
+    setIsOpen(false);
+    setIsMinimized(false);
+    // Reset will happen when reopened due to wasMinimized being false
+  };
+  
+  // Handle chatbot minimizing (preserve state)
+  const minimizeChat = () => {
+    setIsMinimized(true);
+    setIsOpen(false);
+    wasMinimized.current = true; // Track that we're minimizing
+  };
+  
+  // Reset chat function for full resets
+  const resetChat = () => {
+    setMessages([{
+      id: Date.now().toString(),
+      text: "Hello! I'm here to help you learn about Algonimation's services. How can I assist you today?",
+      isBot: true,
+      timestamp: new Date()
+    }]);
+    setShowSuggestions(true);
+    setInputMessage("");
+    setIsTyping(false);
+  };
+  
+  // We need to track if we're reopening from minimized state
+  const wasMinimized = useRef(false);
+  
+  // Handle opening states
+  useEffect(() => {
+    if (isOpen) {
+      // Only reset if we're opening fresh (not from minimized state)
+      if (!wasMinimized.current) {
+        resetChat();
+      }
+      // Reset the minimized tracking
+      wasMinimized.current = false;
+    }
+  }, [isOpen]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -183,9 +236,9 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Chat Button */}
+      {/* Chat Button - Show when closed or minimized */}
       <motion.button
-        onClick={() => setIsOpen(true)}
+        onClick={openChat}
         className={`fixed bottom-6 right-6 z-50 bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${isOpen ? 'hidden' : 'flex'} items-center gap-2`}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -193,8 +246,17 @@ export default function Chatbot() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}
       >
-        <MessageCircle size={24} />
-        <span className="hidden sm:block">Chat with us</span>
+        {isMinimized ? (
+          <>
+            <MessageCircle size={24} />
+            <span className="hidden sm:block">Continue chat</span>
+          </>
+        ) : (
+          <>
+            <MessageCircle size={24} />
+            <span className="hidden sm:block">Chat with us</span>
+          </>
+        )}
       </motion.button>
 
       {/* Chat Window */}
@@ -217,14 +279,29 @@ export default function Chatbot() {
                 />
                 <h3 className="font-semibold">Algonimation Assistant</h3>
               </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/10 p-1"
-              >
-                <X size={18} />
-              </Button>
+              <div className="flex items-center gap-1">
+                {/* Minimize Button */}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={minimizeChat}
+                  className="text-white hover:bg-white/10 p-1"
+                  title="Minimize chat"
+                >
+                  <span className="text-xl font-bold">−</span>
+                </Button>
+                
+                {/* Close Button */}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={closeChat}
+                  className="text-white hover:bg-white/10 p-1"
+                  title="Close chat (resets conversation)"
+                >
+                  <X size={18} />
+                </Button>
+              </div>
             </div>
 
             {/* Messages */}
