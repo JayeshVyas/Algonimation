@@ -287,7 +287,7 @@ export default function Contact() {
             </div>
             
             <motion.div 
-              className="bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-2xl text-white"
+              className="bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-2xl text-white shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -297,12 +297,12 @@ export default function Contact() {
               <p className="mb-6 opacity-90">
                 Let's discuss your project and explore how we can help you achieve your goals.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-4">
                 <Button className="bg-white text-indigo-600 hover:bg-gray-100 font-semibold">
                   <Phone size={20} className="mr-2" />
                   Call Now
                 </Button>
-                <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-semibold">
+                <Button variant="outline" className="border-2 border-white text-white bg-indigo-600/30 hover:bg-white hover:text-indigo-600 font-semibold">
                   <Calendar size={20} className="mr-2" />
                   Schedule Call
                 </Button>
