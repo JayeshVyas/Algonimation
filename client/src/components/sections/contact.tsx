@@ -48,6 +48,8 @@ const serviceOptions = [
   { value: "kpo-services", label: "KPO Services" },
   { value: "bpo-services", label: "BPO Services" },
   { value: "ai-services", label: "AI Services" },
+  { value: "others", label: "Others" },
+
 ];
 
 export default function Contact() {
