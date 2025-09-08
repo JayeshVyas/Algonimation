@@ -1,7 +1,7 @@
 [build]
   base = ""
   publish = "dist/public"
-  command = "npx vite build"
+  command = "npx vite build && npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist"
 
 [[redirects]]
   from = "/*"
