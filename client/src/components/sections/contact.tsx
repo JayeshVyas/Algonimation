@@ -298,10 +298,12 @@ export default function Contact() {
                 Let's discuss your project and explore how we can help you achieve your goals.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button className="bg-white text-indigo-600 hover:bg-gray-100 font-semibold">
-                  <Phone size={20} className="mr-2" />
-                  Call Now
-                </Button>
+                <a href="tel:7976204815" className="w-auto">
+                  <Button className="bg-white text-indigo-600 hover:bg-gray-100 font-semibold">
+                    <Phone size={20} className="mr-2" />
+                    Call Now
+                  </Button>
+                </a>
                 <Button variant="outline" className="border-2 border-white text-white bg-indigo-600/30 hover:bg-white hover:text-indigo-600 font-semibold">
                   <Calendar size={20} className="mr-2" />
                   Schedule Call
