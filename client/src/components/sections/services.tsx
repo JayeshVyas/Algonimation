@@ -184,7 +184,7 @@ export default function Services() {
             {services.map((service, index) => (
               <DialogTrigger asChild key={service.title + '-' + index}>
                 <motion.div
-                  className={`group bg-gradient-to-br ${service.gradient} p-8 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border ${service.border}`}
+                  className={`group relative bg-gradient-to-br ${service.gradient} p-8 rounded-2xl border-2 border-transparent hover:border-indigo-400 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -194,21 +194,23 @@ export default function Services() {
                   tabIndex={0}
                 >
                   <motion.div 
-                    className={`w-16 h-16 bg-gradient-to-br ${service.iconGradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                    whileHover={{ scale: 1.1 }}
+                    className={`w-16 h-16 bg-gradient-to-br ${service.iconGradient} rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-indigo-400 group-hover:scale-110 transition-transform duration-300 border-4 border-white group-hover:border-indigo-400`}
+                    whileHover={{ scale: 1.15, rotate: 8 }}
                   >
-                    <service.icon size={24} className="text-white" />
+                    <service.icon size={32} className="text-white drop-shadow-lg" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <ul className="space-y-2 text-sm text-gray-600">
+                  <h3 className="text-2xl font-extrabold text-gray-900 mb-3 tracking-tight group-hover:text-indigo-700 transition-colors duration-200">{service.title}</h3>
+                  <p className="text-gray-600 mb-5 text-base leading-relaxed group-hover:text-indigo-600 transition-colors duration-200">{service.description}</p>
+                  <ul className="space-y-2 text-sm text-gray-700">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center">
-                        <Check size={16} className="text-green-500 mr-2" />
-                        {feature}
+                        <Check size={16} className="text-green-500 mr-2 group-hover:text-indigo-500 transition-colors duration-200" />
+                        <span className="font-medium">{feature}</span>
                       </li>
                     ))}
                   </ul>
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:shadow-[0_0_40px_0_rgba(99,102,241,0.15)] transition-all duration-300" />
                 </motion.div>
               </DialogTrigger>
             ))}
