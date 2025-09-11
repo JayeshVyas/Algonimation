@@ -7,8 +7,16 @@ import Contact from "@/components/sections/contact";
 import Footer from "@/components/sections/footer";
 import Chatbot from "@/components/chatbot";
 import SeoHead from "@/components/ui/seo-head";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [autoOpenChatbot, setAutoOpenChatbot] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAutoOpenChatbot(true);
+    }, 35000); // 35 seconds
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="min-h-screen">
       <SeoHead 
@@ -20,6 +28,7 @@ export default function Home() {
         ogDescription="Web, Mobile & AI Development Solutions"
         ogImage="https://algonimation.in/og-image.png"
       />
+  {/* No stray closing brace here */}
       <Navigation />
       <main>
         <Hero />
@@ -29,7 +38,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <Chatbot />
+      <Chatbot autoOpen={autoOpenChatbot} />
     </div>
   );
 }

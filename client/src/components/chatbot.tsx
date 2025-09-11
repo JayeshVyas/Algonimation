@@ -18,6 +18,10 @@ const suggestedQuestions = [
   "Tell me about app development",
   "What is PLM customization?", 
   "Tell me about AI solutions",
+  "Tell me about IT business consultation",
+  "Tell me about desktop application development",
+  "Tell me about game development",
+  "Tell me about business procedure development",
   "What is the difference between KPO and BPO?",
   "How much do your services cost?",
   "How can I contact you?",
@@ -38,7 +42,11 @@ const chatbotResponses = {
     plm: "We offer PLM (Product Lifecycle Management) customizations to help businesses optimize their product development processes. Our solutions include custom workflows, integrations, and data management systems.",
     ai: "Our AI solutions include chatbots, machine learning models, data analysis, automation systems, and AI-powered business intelligence tools. We help businesses leverage AI to improve efficiency and decision-making.",
     kpo: "Our KPO (Knowledge Process Outsourcing) services include research and analytics, data processing, content creation, technical writing, and business intelligence support.",
-    bpo: "We provide BPO (Business Process Outsourcing) services including customer support, data entry, virtual assistance, accounting support, and administrative tasks."
+    bpo: "We provide BPO (Business Process Outsourcing) services including customer support, data entry, virtual assistance, accounting support, and administrative tasks.",
+    itConsult: "We offer IT business consultation to help you strategize, plan, and implement technology solutions for business growth and efficiency.",
+    desktopApp: "We develop custom desktop applications for Windows, macOS, and Linux, designed to streamline your business operations.",
+    gameDev: "We provide engaging and interactive game development for desktop and mobile platforms, from concept to launch.",
+    businessProc: "We design and implement efficient business procedures to optimize workflow and productivity."
   },
   
   pricing: "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and can provide a detailed quote after understanding your needs. For pricing inquiries, you can reach out to us at algonimation@gmail.com or use our contact form for a free consultation.",
@@ -55,13 +63,26 @@ const chatbotResponses = {
 };
 
 function getResponse(message: string): string {
+  // Additional services
+  if (lowerMessage.includes('consult')) {
+    return chatbotResponses.services.itConsult;
+  }
+  if (lowerMessage.includes('desktop')) {
+    return chatbotResponses.services.desktopApp;
+  }
+  if (lowerMessage.includes('game')) {
+    return chatbotResponses.services.gameDev;
+  }
+  if (lowerMessage.includes('procedure')) {
+    return chatbotResponses.services.businessProc;
+  }
   const lowerMessage = message.toLowerCase();
   
   // Greetings
   if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
     return chatbotResponses.greetings[Math.floor(Math.random() * chatbotResponses.greetings.length)];
   }
-  
+
   // Services
   if (lowerMessage.includes('web') || lowerMessage.includes('website')) {
     return chatbotResponses.services.web;
@@ -81,25 +102,38 @@ function getResponse(message: string): string {
   if (lowerMessage.includes('bpo')) {
     return chatbotResponses.services.bpo;
   }
-  
+  // Additional services
+  if (lowerMessage.includes('consult')) {
+    return chatbotResponses.services.itConsult;
+  }
+  if (lowerMessage.includes('desktop')) {
+    return chatbotResponses.services.desktopApp;
+  }
+  if (lowerMessage.includes('game')) {
+    return chatbotResponses.services.gameDev;
+  }
+  if (lowerMessage.includes('procedure')) {
+    return chatbotResponses.services.businessProc;
+  }
+
   // Pricing
   if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('pricing')) {
     return chatbotResponses.pricing;
   }
-  
+
   // Contact
   if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('call')) {
     return chatbotResponses.contact;
   }
-  
+
   // Company info
   if (lowerMessage.includes('company') || lowerMessage.includes('about') || lowerMessage.includes('algonimation')) {
     return chatbotResponses.company;
   }
-  
+
   // Services list
   if (lowerMessage.includes('service') || lowerMessage.includes('what do you do') || lowerMessage.includes('help') || lowerMessage.includes('offer')) {
-    return "We offer six main services: Web Development, App Development, PLM Customizations, AI Solutions, KPO Services, and BPO Services. Which one would you like to know more about?";
+    return "We offer these services: Web Development, App Development, PLM Customizations, AI Solutions, KPO Services, BPO Services, IT Business Consultation, Desktop Application Development, Game Development, and Business Procedure Development. Which one would you like to know more about?";
   }
 
   // KPO vs BPO comparison
@@ -121,8 +155,10 @@ function getResponse(message: string): string {
   return "I don't have information about that specific query. For more detailed assistance, please contact us directly at algonimation@gmail.com or use the contact form on our website.";
 }
 
-export default function Chatbot() {
+// Removed duplicate export
+export default function Chatbot({ autoOpen = false }: { autoOpen?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -136,6 +172,14 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  // Auto-open effect
+  useEffect(() => {
+    if (autoOpen && !hasAutoOpened) {
+      setIsOpen(true);
+      setIsMinimized(false);
+      setHasAutoOpened(true);
+    }
+  }, [autoOpen, hasAutoOpened]);
   
   // Handle chatbot opening states
   const openChat = () => {
