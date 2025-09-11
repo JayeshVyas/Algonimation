@@ -1,4 +1,5 @@
 import Navigation from "@/components/navigation";
+import FAQ from "@/components/sections/faq";
 import Hero from "@/components/sections/hero";
 import Services from "@/components/sections/services";
 import Products from "@/components/sections/products";
@@ -35,6 +36,7 @@ export default function Home() {
         <Services />
         <Products />
         <About />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
