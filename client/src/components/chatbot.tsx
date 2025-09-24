@@ -63,6 +63,8 @@ const chatbotResponses = {
 };
 
 function getResponse(message: string): string {
+  const lowerMessage = message.toLowerCase();
+
   // Additional services
   if (lowerMessage.includes('consult')) {
     return chatbotResponses.services.itConsult;
@@ -76,8 +78,7 @@ function getResponse(message: string): string {
   if (lowerMessage.includes('procedure')) {
     return chatbotResponses.services.businessProc;
   }
-  const lowerMessage = message.toLowerCase();
-  
+
   // Greetings
   if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
     return chatbotResponses.greetings[Math.floor(Math.random() * chatbotResponses.greetings.length)];
@@ -101,19 +102,6 @@ function getResponse(message: string): string {
   }
   if (lowerMessage.includes('bpo')) {
     return chatbotResponses.services.bpo;
-  }
-  // Additional services
-  if (lowerMessage.includes('consult')) {
-    return chatbotResponses.services.itConsult;
-  }
-  if (lowerMessage.includes('desktop')) {
-    return chatbotResponses.services.desktopApp;
-  }
-  if (lowerMessage.includes('game')) {
-    return chatbotResponses.services.gameDev;
-  }
-  if (lowerMessage.includes('procedure')) {
-    return chatbotResponses.services.businessProc;
   }
 
   // Pricing
