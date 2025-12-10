@@ -1,0 +1,32 @@
+services:
+  # Web Service for your full-stack app
+  - type: web
+    name: algonimation-site
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    # Health check endpoint (optional - create one if needed)
+    # healthCheckPath: /health
+    
+  # Static Site (alternative if you want to host just the frontend)
+  # - type: web
+  #   name: algonimation-frontend
+  #   env: static
+  #   plan: free
+  #   buildCommand: npm install && npm run build
+  #   staticPublishPath: ./dist/public
+  #   routes:
+  #     - type: rewrite
+  #       source: /*
+  #       destination: /index.html
+
+# Database (if you need PostgreSQL)
+# databases:
+#   - name: algonimation-db
+#     databaseName: algonimation
+#     user: algonimation_user
+#     plan: free

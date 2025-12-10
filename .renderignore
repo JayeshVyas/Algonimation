@@ -1,0 +1,33 @@
+# Render ignore file
+.git
+.gitignore
+README.md
+.env
+.env.local
+.env.*.local
+node_modules/.cache
+*.log
+*.tgz
+.DS_Store
+Thumbs.db
+
+# Netlify specific files (no longer needed)
+netlify.toml
+_redirects
+_headers
+
+# Development files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Build artifacts that will be rebuilt
+dist/
+build/
+.cache/

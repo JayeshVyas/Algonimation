@@ -23,24 +23,6 @@ const services = [
     border: "border-purple-100",
   },
   {
-    icon: Settings,
-    title: "PLM Customizations",
-    description: "Product Lifecycle Management solutions customized to streamline your product development processes.",
-    features: ["Custom Workflows", "Integration Services", "Training & Support"],
-    gradient: "from-emerald-50 to-teal-50",
-    iconGradient: "from-emerald-500 to-teal-600",
-    border: "border-emerald-100",
-  },
-  {
-    icon: Brain,
-    title: "KPO Services",
-    description: "Knowledge Process Outsourcing services including research, analytics, and specialized knowledge work.",
-    features: ["Data Analytics", "Research Services", "Content Creation"],
-    gradient: "from-amber-50 to-orange-50",
-    iconGradient: "from-amber-500 to-orange-600",
-    border: "border-amber-100",
-  },
-  {
     icon: Headphones,
     title: "Quality & AI Engineering",
     description:
@@ -83,9 +65,9 @@ const services = [
   },
   {
     icon: Brain,
-    title: "Game Development",
-    description: "Engaging and interactive game development for desktop and mobile platforms, from concept to launch.",
-    features: ["Unity & Unreal Engine", "2D/3D Games", "Multiplatform Deployment"],
+    title: "Product Development",
+    description: "End-to-end product development from ideation to launch, building innovative solutions tailored to your business needs.",
+    features: ["Product Strategy", "MVP Development", "Market Launch"],
     gradient: "from-pink-50 to-purple-50",
     iconGradient: "from-pink-500 to-purple-600",
     border: "border-pink-100",
@@ -134,15 +116,6 @@ const services = [
     gradient: "from-gray-50 to-zinc-50",
     iconGradient: "from-gray-500 to-zinc-600",
     border: "border-gray-100",
-  },
-  {
-    icon: Globe,
-    title: "Cloud Migration & Management (AWS, Azure, GCP)",
-    description: "Seamless migration and management of your infrastructure to leading cloud platforms.",
-    features: ["AWS, Azure, GCP", "Cloud Security", "Cost Optimization"],
-    gradient: "from-blue-50 to-cyan-50",
-    iconGradient: "from-blue-500 to-cyan-600",
-    border: "border-blue-100",
   },
   
 ];
