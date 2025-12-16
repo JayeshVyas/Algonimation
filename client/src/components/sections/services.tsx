@@ -7,7 +7,7 @@ const services = [
   {
     icon: Globe,
     title: "Web Development & WrodPress Development",
-    description: "Modern, responsive websites and web applications built with cutting-edge technologies like React, Next.js, and Node.js.",
+    description: "Modern, responsive websites and web applications built with cutting-edge technologies like React, Next.js, Node.js and WordPress.",
     features: ["Responsive Design", "React & Next.js", "E-commerce Solutions"],
     gradient: "from-blue-50 to-indigo-50",
     iconGradient: "from-blue-500 to-indigo-600",
