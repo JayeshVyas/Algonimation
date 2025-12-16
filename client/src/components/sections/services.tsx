@@ -6,7 +6,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader } from "@/components
 const services = [
   {
     icon: Globe,
-    title: "Web Development",
+    title: "Web Development & WrodPress Development",
     description: "Modern, responsive websites and web applications built with cutting-edge technologies like React, Next.js, and Node.js.",
     features: ["Responsive Design", "React & Next.js", "E-commerce Solutions"],
     gradient: "from-blue-50 to-indigo-50",
