@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Github, Youtube } from "lucide-react";
+import { Linkedin, Twitter, Youtube } from "lucide-react";
 import Logo from "@/components/ui/logo";
 import { scrollToSection } from "@/lib/smooth-scroll";
 
@@ -18,9 +18,8 @@ const footerLinks = {
     { name: "Careers", href: "#" },
   ],
   social: [
-    { name: "LinkedIn", icon: Linkedin, href: "#", color: "hover:bg-blue-600" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/algonimation/", color: "hover:bg-blue-600" },
     { name: "Twitter", icon: Twitter, href: "#", color: "hover:bg-blue-400" },
-    { name: "GitHub", icon: Github, href: "#", color: "hover:bg-gray-600" },
     { name: "YouTube", icon: Youtube, href: "#", color: "hover:bg-red-600" },
   ],
 };
@@ -97,6 +96,8 @@ export default function Footer() {
                 <motion.a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center ${social.color} transition-colors`}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}

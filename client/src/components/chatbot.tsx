@@ -49,9 +49,9 @@ const chatbotResponses = {
     businessProc: "We design and implement efficient business procedures to optimize workflow and productivity."
   },
   
-  pricing: "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and can provide a detailed quote after understanding your needs. For pricing inquiries, you can reach out to us at algonimation@gmail.com or use our contact form for a free consultation.",
+  pricing: "Our pricing is project-based and depends on your specific requirements. We offer competitive rates and can provide a detailed quote after understanding your needs. For pricing inquiries, you can reach out to us at contact@algonimation.com or use our contact form for a free consultation.",
   
-  contact: "You can reach us through our contact form on this website, email us at algonimation@gmail.com, or feel free to call us directly. We typically respond to inquiries within 24 hours and offer free initial consultations.",
+  contact: "You can reach us through our contact form on this website, email us at contact@algonimation.com, or feel free to call us directly. We typically respond to inquiries within 24 hours and offer free initial consultations.",
   
   company: "Algonimation is a technology company specializing in innovative solutions for businesses. We combine expertise in web development, mobile apps, AI, and business process optimization to help companies grow and succeed in the digital age.",
   
@@ -140,7 +140,7 @@ function getResponse(message: string): string {
   }
   
   // Fallback with email contact
-  return "I don't have information about that specific query. For more detailed assistance, please contact us directly at algonimation@gmail.com or use the contact form on our website.";
+  return "I don't have information about that specific query. For more detailed assistance, please contact us directly at contact@algonimation.com or use the contact form on our website.";
 }
 
 // Removed duplicate export

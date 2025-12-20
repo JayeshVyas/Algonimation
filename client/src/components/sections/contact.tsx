@@ -30,13 +30,13 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "algonimation@gmail.com",
+    content: "contact@algonimation.com",
     gradient: "from-emerald-500 to-teal-600",
   },
   {
     icon: Clock,
-    title: "Business Hours",
-    content: ["Mon - Fri: 9:00 AM - 9:00 PM", "Sat: 10:00 AM - 4:00 PM"],
+    title: "Availability",
+    content: ["24/7 Support Available", "Always Here to Help"],
     gradient: "from-amber-500 to-orange-600",
   },
 ];
