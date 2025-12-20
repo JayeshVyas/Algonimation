@@ -24,7 +24,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    content: "Bangalore, Karnataka 560001, India",
+    content: "44-47 A, Aashirwad Nagar, Udaipur, India",
     gradient: "from-indigo-500 to-purple-600",
   },
   {
