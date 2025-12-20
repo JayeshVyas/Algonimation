@@ -304,10 +304,6 @@ export default function Contact() {
                     Call Now
                   </Button>
                 </a>
-                <Button variant="outline" className="border-2 border-white text-white bg-indigo-600/30 hover:bg-white hover:text-indigo-600 font-semibold">
-                  <Calendar size={20} className="mr-2" />
-                  Schedule Call
-                </Button>
               </div>
             </motion.div>
           </motion.div>

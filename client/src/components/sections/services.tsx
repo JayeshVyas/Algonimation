@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Globe, Smartphone, Settings, Brain, Headphones, Bot, Check } from "lucide-react";
+import { Globe, Smartphone, Settings, Brain, Code2, Megaphone, Monitor, Package, MessageSquare, GitBranch, Check } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader } from "@/components/ui/dialog";
 
 const services = [
   {
     icon: Globe,
-    title: "Web Development & WrodPress Development",
+    title: "Web Development & WordPress Development",
     description: "Modern, responsive websites and web applications built with cutting-edge technologies like React, Next.js, Node.js and WordPress.",
     features: ["Responsive Design", "React & Next.js", "E-commerce Solutions"],
     gradient: "from-blue-50 to-indigo-50",
@@ -23,75 +23,30 @@ const services = [
     border: "border-purple-100",
   },
   {
-    icon: Headphones,
-    title: "Quality & AI Engineering",
-    description:
-      "We ensure your software and systems are built to the highest standards of quality and innovation. Our engineering team delivers robust, reliable, and future-ready solutions, leveraging advanced AI methodologies and rigorous testing practices.",
+    icon: Package,
+    title: "Product & SaaS Development",
+    description: "End-to-end product and SaaS development from ideation to launch, building innovative cloud-based solutions tailored to your business needs.",
+    features: ["Product Strategy", "MVP Development", "Multi-tenant Architecture"],
+    gradient: "from-pink-50 to-purple-50",
+    iconGradient: "from-pink-500 to-purple-600",
+    border: "border-pink-100",
+  },
+  {
+    icon: Brain,
+    title: "AI & Machine Learning Solutions",
+    description: "Comprehensive AI and Machine Learning solutions including quality engineering, automation, intelligent chatbots, and data-driven insights to transform your business operations.",
     features: [
+      "Machine Learning & AI Models",
       "Quality Assurance & Testing",
-      "AI-driven Automation",
-      "System Reliability & Scalability"
+      "Natural Language Processing",
+      "AI-driven Automation"
     ],
     gradient: "from-red-50 to-rose-50",
     iconGradient: "from-red-500 to-rose-600",
     border: "border-red-100",
   },
   {
-    icon: Bot,
-    title: "AI Services",
-    description: "Artificial Intelligence and Machine Learning solutions to automate processes and gain insights from data.",
-    features: ["Machine Learning", "Natural Language Processing", "Computer Vision"],
-    gradient: "from-cyan-50 to-blue-50",
-    iconGradient: "from-cyan-500 to-blue-600",
-    border: "border-cyan-100",
-  },
-  {
-    icon: Settings,
-    title: "IT Business Consultation",
-    description: "Expert IT consulting to help you strategize, plan, and implement technology solutions for business growth and efficiency.",
-    features: ["Technology Strategy", "Process Optimization", "Digital Transformation"],
-    gradient: "from-green-50 to-lime-50",
-    iconGradient: "from-green-500 to-lime-600",
-    border: "border-green-100",
-  },
-  {
-    icon: Bot,
-    title: "Desktop Application Development",
-    description: "Custom desktop software for Windows, macOS, and Linux, designed to streamline your business operations.",
-    features: ["Cross-platform Apps", "UI/UX Design", "Performance Optimization"],
-    gradient: "from-gray-50 to-slate-50",
-    iconGradient: "from-gray-500 to-slate-600",
-    border: "border-gray-100",
-  },
-  {
-    icon: Brain,
-    title: "Product Development",
-    description: "End-to-end product development from ideation to launch, building innovative solutions tailored to your business needs.",
-    features: ["Product Strategy", "MVP Development", "Market Launch"],
-    gradient: "from-pink-50 to-purple-50",
-    iconGradient: "from-pink-500 to-purple-600",
-    border: "border-pink-100",
-  },
-  {
-    icon: Settings,
-    title: "Business Procedure Development",
-    description: "Design and implementation of efficient business procedures to optimize workflow and productivity.",
-    features: ["Workflow Automation", "Process Mapping", "Efficiency Consulting"],
-    gradient: "from-yellow-50 to-amber-50",
-    iconGradient: "from-yellow-500 to-amber-600",
-    border: "border-yellow-100",
-  },
-  {
-    icon: Bot,
-    title: "SaaS Product Development",
-    description: "End-to-end SaaS product design, development, and deployment for scalable cloud-based solutions.",
-    features: ["Multi-tenant Architecture", "Subscription Management", "Cloud Hosting"],
-    gradient: "from-indigo-50 to-blue-50",
-    iconGradient: "from-indigo-500 to-blue-600",
-    border: "border-indigo-100",
-  },
-  {
-    icon: Headphones,
+    icon: MessageSquare,
     title: "Voice Assistant & Chatbot Development",
     description: "Custom voice assistants and chatbots for web, mobile, and smart devices, powered by AI.",
     features: ["Natural Language Processing", "Multi-platform Integration", "Conversational UI"],
@@ -100,22 +55,40 @@ const services = [
     border: "border-purple-100",
   },
   {
-    icon: Brain,
-    title: "Digital Marketing & SEO Services",
-    description: "Comprehensive digital marketing strategies and SEO optimization to boost your online presence.",
-    features: ["SEO Audits", "Content Marketing", "Social Media Campaigns"],
+    icon: Megaphone,
+    title: "Digital Marketing, SEO & Social Media",
+    description: "Comprehensive digital marketing strategies, SEO optimization, and social media management to boost your online presence and engage your audience.",
+    features: ["SEO Audits", "Content Marketing", "Social Media Management"],
     gradient: "from-pink-50 to-red-50",
     iconGradient: "from-pink-500 to-red-600",
     border: "border-pink-100",
   },
   {
-    icon: Settings,
+    icon: Code2,
+    title: "IT Consulting & Process Optimization",
+    description: "Expert IT consulting and business process optimization to help you strategize, plan, and implement technology solutions for business growth and efficiency.",
+    features: ["Technology Strategy", "Process Optimization", "Digital Transformation"],
+    gradient: "from-green-50 to-lime-50",
+    iconGradient: "from-green-500 to-lime-600",
+    border: "border-green-100",
+  },
+  {
+    icon: GitBranch,
     title: "DevOps & CI/CD Automation",
     description: "Automate your software delivery pipeline with DevOps best practices and CI/CD tools.",
     features: ["Continuous Integration", "Automated Testing", "Deployment Automation"],
     gradient: "from-gray-50 to-zinc-50",
     iconGradient: "from-gray-500 to-zinc-600",
     border: "border-gray-100",
+  },
+  {
+    icon: Settings,
+    title: "PLM Customizations",
+    description: "Product Lifecycle Management solutions customized to streamline your product development processes.",
+    features: ["Custom Workflows", "Integration Services", "Training & Support"],
+    gradient: "from-emerald-50 to-teal-50",
+    iconGradient: "from-emerald-500 to-teal-600",
+    border: "border-emerald-100",
   },
   
 ];

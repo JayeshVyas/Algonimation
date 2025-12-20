@@ -32,7 +32,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 We create cutting-edge products and provide world-class services in web development, 
-                app development, PLM customizations, KPO, BPO, and AI solutions.
+                app development, AI & machine learning, SaaS solutions, and digital marketing.
               </motion.p>
             </div>
             

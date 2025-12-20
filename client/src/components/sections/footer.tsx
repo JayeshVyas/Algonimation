@@ -8,14 +8,14 @@ const footerLinks = {
     { name: "Web Development", href: "services" },
     { name: "App Development", href: "services" },
     { name: "PLM Customizations", href: "services" },
-    { name: "KPO Services", href: "services" },
-    { name: "BPO Services", href: "services" },
+    { name: "AI Services", href: "services" },
+    { name: "IT Consulting", href: "services" },
   ],
   company: [
     { name: "About Us", href: "about" },
     { name: "Products", href: "products" },
     { name: "Contact", href: "contact" },
-    { name: "Careers", href: "#" },
+    { name: "Careers", href: "https://www.linkedin.com/company/algonimation/jobs/" },
   ],
   social: [
     { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/algonimation/", color: "hover:bg-blue-600" },
@@ -73,12 +73,23 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </button>
+                  {link.href.startsWith('http') ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
